@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 Samsung Electronics Co., Ltd.
+# Copyright (C) 2013 Samsung Electronics Co., Ltd.
 #              http://www.samsung.com/
 #
 # This program is free software; you can redistribute it and/or modify
@@ -28,23 +28,23 @@ fi
 signed_bl1_position=1
 bl2_position=31
 uboot_position=63
-tzsw_position=2111
+tzsw_position=719
 
 #<BL1 fusing>
 echo "BL1 fusing"
-sudo dd iflag=dsync oflag=dsync if=./bl1.bin of=$1 seek=$signed_bl1_position
+dd iflag=dsync oflag=dsync if=./bl1.bin of=$1 seek=$signed_bl1_position
 
 #<BL2 fusing>
 echo "BL2 fusing"
-sudo dd iflag=dsync oflag=dsync if=./bl2.bin of=$1 seek=$bl2_position
+dd iflag=dsync oflag=dsync if=./bl2.bin of=$1 seek=$bl2_position
 
 #<u-boot fusing>
 echo "u-boot fusing"
-sudo dd iflag=dsync oflag=dsync if=./u-boot.bin of=$1 seek=$uboot_position
+dd iflag=dsync oflag=dsync if=./u-boot.bin of=$1 seek=$uboot_position
 
 #<TrustZone S/W fusing>
 echo "TrustZone S/W fusing"
-sudo dd iflag=dsync oflag=dsync if=./tzsw.bin of=$1 seek=$tzsw_position
+dd iflag=dsync oflag=dsync if=./tzsw.bin of=$1 seek=$tzsw_position
 
 ####################################
 #<Message Display>
