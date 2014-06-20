@@ -1,4 +1,4 @@
 #!/system/bin/sh
-
-export PATH=/sbin:/system/sbin:/system/bin:/system/xbin
-/system/bin/logwrapper /system/xbin/run-parts /system/etc/init.d 
+export PATH=${PATH}:/system/bin:/system/xbin
+chmod 777 /system/etc/init.d/*
+logwrapper busybox run-parts /system/etc/init.d/
