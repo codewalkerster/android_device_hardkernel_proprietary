@@ -1,0 +1,17 @@
+ANDROID_ROOT=/home/ckkim/ssd/adonis/android
+
+source $ANDROID_ROOT/build/envsetup.sh
+
+PRODUCT='odroidxu'
+TARGET_PRODUCT=$PRODUCT mm
+
+if [ "$?" -ne "0" ]; then
+	echo " Error ---------------------------------------------------------------------------------"
+	exit
+fi
+	echo " Build Ok............................................................................."
+
+adb remount
+adb push $ANDROID_ROOT/out/target/product/$PRODUCT/system/lib/hw/camera.$PRODUCT.so /system/lib/hw/
+adb shell sync
+#adb shell reboot
