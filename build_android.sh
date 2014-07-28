@@ -80,11 +80,15 @@ function copy_root_2_system()
     rm -rf $OUT_DIR/system/sbin/healthd
 	cp -arp $OUT_DIR/root/* $OUT_DIR/system/
 	mv $OUT_DIR/system/init $OUT_DIR/system/bin/
-	ln -sr $OUT_DIR/system/bin/init $OUT_DIR/system/init
 	mv $OUT_DIR/system/sbin/adbd $OUT_DIR/system/bin/
-	ln -sr $OUT_DIR/system/bin/adbd $OUT_DIR/system/sbin/adbd
 	mv $OUT_DIR/system/sbin/healthd $OUT_DIR/system/bin/
-	ln -sr $OUT_DIR/system/bin/healthd $OUT_DIR/system/sbin/healthd
+
+    cd $OUT_DIR/system
+	ln -s bin/init init
+    cd $OUT_DIR/system/sbin
+	ln -s ../bin/adbd adbd
+	ln -s ../bin/healthd healthd
+
 
     echo 'SYSTEMIMAGE_PARTITION_SIZE'
   	echo $SYSTEMIMAGE_PARTITION_SIZE
