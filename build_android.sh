@@ -156,9 +156,9 @@ function copy_root_2_system()
     rm -rf $OUT_DIR/system/sbin/adbd
 	cp -arp $OUT_DIR/root/* $OUT_DIR/system/
 	mv $OUT_DIR/system/init $OUT_DIR/system/bin/
-	ln -sr $OUT_DIR/system/bin/init $OUT_DIR/system/init
+	ln -sf $OUT_DIR/system/bin/init $OUT_DIR/system/init
 	mv $OUT_DIR/system/sbin/adbd $OUT_DIR/system/bin/
-	ln -sr $OUT_DIR/system/bin/adbd $OUT_DIR/system/sbin/adbd
+	ln -sf $OUT_DIR/system/bin/adbd $OUT_DIR/system/sbin/adbd
 
     echo 'SYSTEMIMAGE_PARTITION_SIZE'
   	echo $SYSTEMIMAGE_PARTITION_SIZE
