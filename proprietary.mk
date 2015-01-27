@@ -1,5 +1,6 @@
 # Prebuild packages
 PRODUCT_COPY_FILES += \
+        device/hardkernel/proprietary/apk/kodi-14.0-Helix-armeabi-v7a.apk:cache/kodi-14.0-Helix-armeabi-v7a.apk \
         device/hardkernel/proprietary/apk/Ultra_Explorer.apk:system/app/Ultra_Explorer.apk \
         device/hardkernel/proprietary/apk/jackpal.androidterm.apk:system/app/jackpal.androidterm.apk \
         device/hardkernel/proprietary/lib/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so
