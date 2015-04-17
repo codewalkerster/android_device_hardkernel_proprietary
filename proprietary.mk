@@ -4,7 +4,8 @@ PRODUCT_COPY_FILES += \
         device/hardkernel/proprietary/apk/Superuser.apk:cache/Superuser.apk \
         device/hardkernel/proprietary/apk/Ultra_Explorer.apk:system/app/Ultra_Explorer.apk \
         device/hardkernel/proprietary/apk/jackpal.androidterm.apk:system/app/jackpal.androidterm.apk \
-        device/hardkernel/proprietary/lib/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so
+        device/hardkernel/proprietary/lib/libjackpal-androidterm5.so:system/lib/libjackpal-androidterm5.so \
+        device/hardkernel/proprietary/lib/libjackpal-termexec2.so:system/lib/libjackpal-termexec2.so
 
 # Companion libraries for prebuild packages
 PRODUCT_COPY_FILES += \
