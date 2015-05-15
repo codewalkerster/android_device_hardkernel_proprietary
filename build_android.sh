@@ -18,6 +18,10 @@ then
     rm -f $OUT_DIR/ramdisk.img
 fi
 
+KERNEL_CROSS_COMPILE_PATH=arm-none-linux-gnueabi-
+KERNEL_DIR="$ROOT_DIR/kernel"
+
+
 option="recovery"
 function check_exit()
 {
@@ -25,6 +29,30 @@ function check_exit()
     then
         exit $?
     fi
+}
+
+function build_kernel()
+{
+    echo
+    echo '[[[[[[[ Build android kernel ]]]]]]]'
+    echo
+
+    START_TIME=`date +%s`
+    pushd $KERNEL_DIR
+    echo "set defconfig for $SEC_PRODUCT_android_442_defconf"
+    echo
+    make ARCH=arm $SEC_PRODUCT"_android_442_defconfig"
+    check_exit
+    echo "make -j$CPU_JOB_NUM ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH"
+    echo
+    make -j$CPU_JOB_NUM ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH
+    check_exit
+    END_TIME=`date +%s`
+
+    let "ELAPSED_TIME=$END_TIME-$START_TIME"
+    echo "Total compile time is $ELAPSED_TIME seconds"
+
+    popd
 }
 
 function build_android()
@@ -75,6 +103,10 @@ function copy_root_2_system()
     echo '[[[[[[[ copy ramdisk rootfs to system ]]]]]]]'
     echo
 
+    cp $KERNEL_DIR/arch/arm/boot/zImage $OUT_DIR/zImage
+    mkdir -p $OUT_DIR/system/lib/modules
+    find $KERNEL_DIR -name *.ko | xargs -i cp {} $OUT_DIR/system/lib/modules/
+
     rm -rf $OUT_DIR/system/init
     rm -rf $OUT_DIR/system/sbin/adbd
     rm -rf $OUT_DIR/system/sbin/healthd
@@ -108,7 +140,7 @@ function make_update_zip()
         rm -rf $OUT_DIR/update/*
     fi
 
-    cp $ROOT_DIR/device/hardkernel/$SEC_PRODUCT/zImage $OUT_DIR/update/zImage
+    cp $OUT_DIR/zImage $OUT_DIR/update/zImage
     cp $OUT_DIR/system.img $OUT_DIR/update/
     split -b 16M $OUT_DIR/system.img $OUT_DIR/update/system_
     rm -rf $OUT_DIR/update/system.img
@@ -141,6 +173,7 @@ case "$SEC_PRODUCT" in
     odroidu)
         . build/envsetup.sh
         lunch odroidu-eng
+        build_kernel
         build_android
         copy_root_2_system
         make_update_zip
@@ -152,6 +185,7 @@ case "$SEC_PRODUCT" in
     odroidx2)
         . build/envsetup.sh
         lunch odroidx2-eng
+        build_kernel
         build_android
         copy_root_2_system
         make_update_zip
@@ -163,6 +197,7 @@ case "$SEC_PRODUCT" in
     odroidx)
         . build/envsetup.sh
         lunch odroidx-eng
+        build_kernel
         build_android
         copy_root_2_system
         make_update_zip
@@ -174,6 +209,7 @@ case "$SEC_PRODUCT" in
     odroidq2)
         . build/envsetup.sh
         lunch odroidq2-eng
+        build_kernel
         build_android
         copy_root_2_system
         make_update_zip
