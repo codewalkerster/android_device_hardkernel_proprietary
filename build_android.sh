@@ -46,13 +46,26 @@ function build_kernel()
     echo "make -j$CPU_JOB_NUM ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH"
     echo
     make -j$CPU_JOB_NUM ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH
+    echo "make ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH -C $PWD M=$ROOT_DIR/hardware/wifi/realtek/drivers/8192cu/rtl8xxx_CU"
+    make ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH -C $PWD M=$ROOT_DIR/hardware/wifi/realtek/drivers/8192cu/rtl8xxx_CU
+    echo "make ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH -C $ROOT_DIR/vendor/ralink/kernel_driver"
+    make ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH -C $ROOT_DIR/vendor/ralink/kernel_driver
+    echo "make -C ../hardware/backports ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH KLIB_BUILD=$PWD defconfig-odroid_4412"
+    make -C ../hardware/backports ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH KLIB_BUILD=$PWD defconfig-odroid_4412
+    echo "make -C ../hardware/backports ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH KLIB_BUILD=$PWD"
+    make -C ../hardware/backports ARCH=arm CROSS_COMPILE=$KERNEL_CROSS_COMPILE_PATH KLIB_BUILD=$PWD
     check_exit
     END_TIME=`date +%s`
+    popd
+
+    pushd $ROOT_DIR/vendor/ralink/kernel_driver
+    echo "make"
+    make
+    popd
 
     let "ELAPSED_TIME=$END_TIME-$START_TIME"
     echo "Total compile time is $ELAPSED_TIME seconds"
 
-    popd
 }
 
 function build_android()
@@ -104,8 +117,12 @@ function copy_root_2_system()
     echo
 
     cp $KERNEL_DIR/arch/arm/boot/zImage $OUT_DIR/zImage
-    mkdir -p $OUT_DIR/system/lib/modules
+    rm -rf $OUT_DIR/system/lib/modules/
+    mkdir -p $OUT_DIR/system/lib/modules/backports
     find $KERNEL_DIR -name *.ko | xargs -i cp {} $OUT_DIR/system/lib/modules/
+    find $ROOT_DIR/hardware/wifi/realtek/drivers/8192cu/rtl8xxx_CU -name *.ko | xargs -i cp {} $OUT_DIR/system/lib/modules
+    find $ROOT_DIR/vendor/ralink/kernel_driver -name *.ko | xargs -i cp {} $OUT_DIR/system/lib/modules
+    find $ROOT_DIR/hardware/backports -name *.ko | xargs -i cp {} $OUT_DIR/system/lib/modules/backports
 
     rm -rf $OUT_DIR/system/init
     rm -rf $OUT_DIR/system/sbin/adbd
