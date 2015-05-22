@@ -58,11 +58,6 @@ function build_kernel()
     END_TIME=`date +%s`
     popd
 
-    pushd $ROOT_DIR/vendor/ralink/kernel_driver
-    echo "make"
-    make
-    popd
-
     let "ELAPSED_TIME=$END_TIME-$START_TIME"
     echo "Total compile time is $ELAPSED_TIME seconds"
 
