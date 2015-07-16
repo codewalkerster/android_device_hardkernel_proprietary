@@ -1,6 +1,6 @@
 # Prebuild packages
 PRODUCT_COPY_FILES += \
-        device/hardkernel/proprietary/apk/kodi-14.2-Helix-armeabi-v7a.apk:cache/kodi-14.2-Helix-armeabi-v7a.apk \
+        device/hardkernel/proprietary/apk/kodi-20150715-6259f20-Isengard-armeabi-v7a.apk:cache/kodi-20150715-6259f20-Isengard-armeabi-v7a.apk \
         device/hardkernel/proprietary/apk/Superuser.apk:cache/Superuser.apk \
         device/hardkernel/proprietary/apk/Ultra_Explorer.apk:system/app/Ultra_Explorer.apk \
         device/hardkernel/proprietary/apk/jackpal.androidterm.apk:system/app/jackpal.androidterm.apk \
