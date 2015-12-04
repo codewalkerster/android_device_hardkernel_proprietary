@@ -22,6 +22,7 @@ PRODUCT_COPY_FILES += \
 # Input device calibration files
 PRODUCT_COPY_FILES += \
         device/hardkernel/proprietary/bin/odroid-ts.idc:system/usr/idc/odroid-ts.idc \
+        device/hardkernel/proprietary/bin/odroid-ts.idc:system/usr/idc/usbio-keypad.idc \
         device/hardkernel/proprietary/bin/odroid-ts.kl:system/usr/keylayout/odroid-ts.kl \
         device/hardkernel/proprietary/bin/odroid-ts.kcm:system/usr/keylayout/odroid-ts.kcm \
         device/hardkernel/proprietary/bin/odroid-keypad.kl:system/usr/keylayout/odroid-keypad.kl \
