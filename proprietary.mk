@@ -3,7 +3,6 @@ PACKAGE_KODI = kodi-20160124-a545667-master-armeabi-v7a.apk
 # Prebuild packages
 PRODUCT_COPY_FILES += \
 	device/hardkernel/proprietary/apk/$(PACKAGE_KODI):cache/$(PACKAGE_KODI) \
-        device/hardkernel/proprietary/apk/Ultra_Explorer.apk:system/app/Ultra_Explorer.apk \
         device/hardkernel/proprietary/apk/jackpal.androidterm.apk:system/app/jackpal.androidterm.apk \
         device/hardkernel/proprietary/lib/libjackpal-androidterm5.so:system/lib/libjackpal-androidterm5.so \
         device/hardkernel/proprietary/lib/libjackpal-termexec2.so:system/lib/libjackpal-termexec2.so
