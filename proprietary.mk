@@ -7,17 +7,6 @@ PRODUCT_COPY_FILES += \
         device/hardkernel/proprietary/lib/libjackpal-androidterm5.so:system/lib/libjackpal-androidterm5.so \
         device/hardkernel/proprietary/lib/libjackpal-termexec2.so:system/lib/libjackpal-termexec2.so
 
-# Companion libraries for prebuild packages
-PRODUCT_COPY_FILES += \
-        device/hardkernel/proprietary/apk/DicePlayer.apk:system/app/DicePlayer.apk \
-        device/hardkernel/proprietary/lib/libSoundTouch.so:system/lib/libSoundTouch.so \
-        device/hardkernel/proprietary/lib/libdice_kk.so:system/lib/libdice_kk.so \
-        device/hardkernel/proprietary/lib/libdice_loadlibrary.so:system/lib/libdice_loadlibrary.so \
-        device/hardkernel/proprietary/lib/libdice_software.so:system/lib/libdice_software.so \
-        device/hardkernel/proprietary/lib/libdice_software_kk.so:system/lib/libdice_software_kk.so \
-        device/hardkernel/proprietary/lib/libffmpeg_dice.so:system/lib/libffmpeg_dice.so \
-        device/hardkernel/proprietary/lib/libsonic.so:system/lib/libsonic.so
-
 # Input device calibration files
 PRODUCT_COPY_FILES += \
         device/hardkernel/proprietary/bin/odroid-ts.idc:system/usr/idc/odroid-ts.idc \
