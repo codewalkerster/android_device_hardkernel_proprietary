@@ -1,4 +1,4 @@
-PACKAGE_KODI = kodi-20160221-485160e-master-armeabi-v7a.apk
+PACKAGE_KODI = kodi-16.0-Jarvis-armeabi-v7a.apk
 
 # Prebuild packages
 PRODUCT_COPY_FILES += \
