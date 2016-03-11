@@ -1,8 +1,8 @@
 PACKAGE_KODI = kodi-16.0-Jarvis-armeabi-v7a.apk
-#	device/hardkernel/proprietary/apk/$(PACKAGE_KODI):cache/$(PACKAGE_KODI) \
 
 # Prebuild packages
 PRODUCT_COPY_FILES += \
+	device/hardkernel/proprietary/apk/$(PACKAGE_KODI):cache/$(PACKAGE_KODI) \
         device/hardkernel/proprietary/apk/CMFileManager.apk:system/app/CMFileManager/CMFileManager.apk \
         device/hardkernel/proprietary/apk/jackpal.androidterm.apk:system/app/jackpal.androidterm.apk \
         device/hardkernel/proprietary/lib/libjackpal-androidterm5.so:system/lib/libjackpal-androidterm5.so \
