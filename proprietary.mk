@@ -1,4 +1,4 @@
-PACKAGE_KODI = kodi-15.1.1-Isengard-armeabi-v7a.apk
+PACKAGE_KODI = kodi-16.0-Jarvis-armeabi-v7a.apk
 
 # Prebuild packages
 PRODUCT_COPY_FILES += \
