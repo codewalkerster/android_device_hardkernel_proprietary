@@ -25,7 +25,8 @@ PRODUCT_COPY_FILES += \
         device/hardkernel/proprietary/bin/Vendor_1870_Product_0100.idc:system/usr/idc/Vendor_1870_Product_0100.idc \
         device/hardkernel/proprietary/bin/Vendor_2808_Product_81c9.idc:system/usr/idc/Vendor_2808_Product_81c9.idc \
         device/hardkernel/proprietary/bin/Vendor_16b4_Product_0704.idc:system/usr/idc/Vendor_16b4_Product_0704.idc \
-        device/hardkernel/proprietary/bin/Vendor_16b4_Product_0705.idc:system/usr/idc/Vendor_16b4_Product_0705.idc
+        device/hardkernel/proprietary/bin/Vendor_16b4_Product_0705.idc:system/usr/idc/Vendor_16b4_Product_0705.idc \
+        device/hardkernel/proprietary/bin/Vendor_04d8_Product_0c03.idc:system/usr/idc/Vendor_04d8_Product_0c03.idc
 
 # XBox 360 Controller kl keymaps
 PRODUCT_COPY_FILES += \
