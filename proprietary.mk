@@ -1,5 +1,3 @@
-PACKAGE_KODI = kodi-16.0-Jarvis-armeabi-v7a.apk
-
 # Prebuild packages
 PRODUCT_COPY_FILES += \
         device/hardkernel/proprietary/apk/CMFileManager.apk:system/app/CMFileManager/CMFileManager.apk \
