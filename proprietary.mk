@@ -1,10 +1,3 @@
-# Prebuild packages
-PRODUCT_COPY_FILES += \
-        device/hardkernel/proprietary/apk/CMFileManager.apk:system/app/CMFileManager/CMFileManager.apk \
-        device/hardkernel/proprietary/apk/jackpal.androidterm.apk:system/app/jackpal.androidterm.apk \
-        device/hardkernel/proprietary/lib/libjackpal-androidterm5.so:system/lib/libjackpal-androidterm5.so \
-        device/hardkernel/proprietary/lib/libjackpal-termexec2.so:system/lib/libjackpal-termexec2.so
-
 # Input device calibration files
 PRODUCT_COPY_FILES += \
         device/hardkernel/proprietary/bin/odroid-ts.idc:system/usr/idc/odroid-ts.idc \
