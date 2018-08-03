@@ -48,4 +48,5 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/hardkernel/proprietary/bin/sysinit:system/bin/sysinit
 
-
+PRODUCT_COPY_FILES += \
+    device/hardkernel/proprietary/bin/mplayer:system/bin/mplayer
