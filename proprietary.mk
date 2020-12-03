@@ -23,5 +23,4 @@ PRODUCT_COPY_FILES += \
         device/hardkernel/proprietary/bin/Vendor_045e_Product_0291.kl:vendor/usr/keylayout/Vendor_045e_Product_0291.kl \
         device/hardkernel/proprietary/bin/Vendor_045e_Product_0719.kl:vendor/usr/keylayout/Vendor_045e_Product_0719.kl \
         device/hardkernel/proprietary/bin/Vendor_0c45_Product_1109.kl:vendor/usr/keylayout/Vendor_0c45_Product_1109 \
-        device/hardkernel/proprietary/bin/Vendor_1b8e_Product_0cec_Version_0001.kl:vendor/usr/keylayout/Vendor_1b8e_Product_0cec_Version_0001 \
         device/hardkernel/proprietary/bin/Vendor_045e_Product_0719.kcm:vendor/usr/keychars/Vendor_045e_Product_0719.kcm
