@@ -1,5 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
+ifeq ($(TARGET_BUILD_VARIANT),eng)
 include $(CLEAR_VARS)
 LOCAL_MODULE := AndroidTerm
 LOCAL_MODULE_CLASS := APPS
@@ -17,3 +18,4 @@ LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_CERTIFICATE := platform
 LOCAL_SRC_FILES := apk/SprUsr.apk
 include $(BUILD_PREBUILT)
+endif
