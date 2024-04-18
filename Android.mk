@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_BUILD_VARIANT),eng)
+ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 include $(CLEAR_VARS)
 LOCAL_MODULE := AndroidTerm
 LOCAL_MODULE_CLASS := APPS
